@@ -39,54 +39,81 @@
         };
     </script>
     <style type="text/tailwindcss">
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(20deg); opacity: 0; }
+        }
+        @keyframes sway {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+        @keyframes pulse-heart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .confetti {
+            position: absolute;
+            animation: float 4s linear infinite;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            animation: float 8s ease-in infinite, sway 3s ease-in-out infinite;
+        }
         body {
-            background: linear-gradient(135deg, #fdfaff 0%, #f3e8ff 100%);
+            background: linear-gradient(135deg, #f5f0ff 0%, #e9d5ff 100%);
+            overflow: hidden;
         }
     </style>
 </head>
 
-<body class="font-display text-[#171118] transition-colors duration-300 min-h-screen">
-    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-        <main class="flex-1 flex flex-col items-center justify-center px-4 py-16 md:py-24">
-            <div class="text-center mb-12 relative">
-                <div class="absolute -top-16 left-1/2 -translate-x-1/2 text-primary/10">
-                    <span class="material-symbols-outlined text-[160px]">favorite</span>
-                </div>
-                <h1 class="font-handwritten text-primary text-7xl md:text-[10rem] relative z-10 mb-8 drop-shadow-sm">
-                    Be Mine?
+<body class="font-display text-[#171118] transition-colors duration-300 min-h-screen relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" id="decoration-layer">
+        <div class="balloon left-[10%] text-primary/40" style="animation-delay: 0s;">
+            <span class="material-symbols-outlined text-6xl">favorite</span>
+        </div>
+        <div class="balloon left-[30%] text-primary/20" style="animation-delay: 2s;">
+            <span class="material-symbols-outlined text-8xl">favorite</span>
+        </div>
+        <div class="balloon left-[70%] text-primary/30" style="animation-delay: 1s;">
+            <span class="material-symbols-outlined text-7xl">favorite</span>
+        </div>
+        <div class="balloon left-[90%] text-primary/25" style="animation-delay: 4s;">
+            <span class="material-symbols-outlined text-9xl">favorite</span>
+        </div>
+        <div class="confetti left-[15%] text-primary/40" style="animation-delay: 0.5s; top: 100%;">✦</div>
+        <div class="confetti left-[25%] text-primary/40" style="animation-delay: 1.2s; top: 100%;">●</div>
+        <div class="confetti left-[45%] text-primary/40" style="animation-delay: 2.5s; top: 100%;">✦</div>
+        <div class="confetti left-[65%] text-primary/40" style="animation-delay: 0.8s; top: 100%;">●</div>
+        <div class="confetti left-[85%] text-primary/40" style="animation-delay: 3.1s; top: 100%;">✦</div>
+    </div>
+    <div class="relative flex min-h-screen w-full flex-col z-10">
+        <main class="flex-1 flex flex-col items-center justify-center px-4 py-8">
+            <div class="text-center mb-8 relative">
+                <h1 class="font-handwritten text-primary text-5xl md:text-8xl relative z-10 mb-6 drop-shadow-md">
+                    Yay! See you on February 17, 2026! ❤️
                 </h1>
+                <div class="flex items-center justify-center gap-4 py-8">
+                    <div class="animate-bounce" style="animation-duration: 2s;">
+                        <span class="material-symbols-outlined text-primary text-8xl fill-1">favorite</span>
+                    </div>
+                    <div class="animate-bounce" style="animation-duration: 2s; animation-delay: 0.3s;">
+                        <span class="material-symbols-outlined text-primary/80 text-8xl fill-1">favorite</span>
+                    </div>
+                </div>
                 <div class="max-w-[650px] mx-auto px-6 relative z-10">
                     <p class="text-muted-lilac italic text-xl md:text-2xl leading-relaxed">
-                        "Every day with you feels like a beautiful dream. I can't wait to spend many more Valentine's
-                        Days by your side."
+                        "I'm the luckiest person in the world. Our journey together continues!"
                     </p>
                 </div>
             </div>
-            <div class="w-full max-w-[480px] relative z-10">
-                <div class="flex flex-col sm:flex-row gap-4 px-4 py-3 justify-center items-center">
-                    <a href="yes.html"
-                        class="w-full sm:flex-1 min-w-[160px] flex items-center justify-center rounded-2xl h-16 px-8 bg-primary text-white text-xl font-bold shadow-xl shadow-primary/25 hover:scale-105 transition-transform active:scale-95">
-                        Yes
-                    </a>
-
-                    <a href="no.html"
-                        class="w-full sm:flex-1 min-w-[160px] flex items-center justify-center rounded-2xl h-16 px-8 bg-white border-2 border-primary/20 text-primary text-xl font-bold hover:bg-lilac-soft transition-colors active:scale-95">
-                        No
-                    </a>
-
-                </div>
-                <p class="text-center text-[11px] text-muted-lilac/60 mt-8 font-medium uppercase tracking-widest">
-                    With all my heart
-                </p>
-            </div>
         </main>
-        <footer class="w-full bg-white/30 backdrop-blur-md py-12 px-6 border-t border-primary/10">
+        <footer class="w-full bg-white/20 backdrop-blur-sm py-12 px-6 border-t border-primary/10">
             <div class="max-w-[960px] mx-auto flex flex-col items-center gap-8">
                 <div class="text-center">
-                    <h4 class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-8">
-                        February 17, 2026
+                    <h4 class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-8">Counting down the days...
                     </h4>
-
                     <div class="grid grid-cols-4 gap-4 md:gap-8 justify-center items-baseline">
 
                         <div class="flex flex-col items-center">
@@ -118,8 +145,12 @@
                         </div>
 
                     </div>
-                </div>
 
+                </div>
+                <div class="pt-8 border-t border-primary/10 w-full max-w-xs text-center">
+                    <p class="text-xs text-muted-lilac font-medium tracking-wide">February 17, 2026 • Forever Yours</p>
+                </div>
+            </div>
         </footer>
     </div>
 

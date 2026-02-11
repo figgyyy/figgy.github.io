@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Dancing+Script:wght@700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c930e8",
+                        "lilac-soft": "#f3e8ff",
+                        "lilac-deep": "#e9d5ff",
+                        "background-light": "#f8f6f8",
+                        "background-dark": "#1e1121",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "handwritten": ["Dancing Script", "cursive"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px 5px rgba(201, 48, 232, 0.4); }
+            50% { box-shadow: 0 0 40px 10px rgba(201, 48, 232, 0.6); }
+        }
+        .glow-button {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .sad-heart {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-lilac-deep dark:bg-background-dark font-display text-[#171118] dark:text-white transition-colors duration-300 overflow-hidden">
+    <div class="relative flex min-h-screen w-full flex-col items-center justify-center">
+        <span
+            class="material-symbols-outlined sad-heart absolute top-10 left-10 text-primary/30 text-4xl transform -rotate-12">heart_broken</span>
+        <span
+            class="material-symbols-outlined sad-heart absolute top-20 right-[15%] text-primary/20 text-5xl transform rotate-12">heart_broken</span>
+        <span
+            class="material-symbols-outlined sad-heart absolute bottom-[15%] left-[20%] text-primary/25 text-3xl transform rotate-45">heart_broken</span>
+        <span
+            class="material-symbols-outlined sad-heart absolute bottom-10 right-10 text-primary/35 text-6xl transform -rotate-6">heart_broken</span>
+        <span
+            class="material-symbols-outlined sad-heart absolute top-1/2 left-12 text-primary/10 text-2xl">heart_broken</span>
+        <span
+            class="material-symbols-outlined sad-heart absolute bottom-1/3 right-8 text-primary/15 text-4xl transform rotate-180">heart_broken</span>
+        <main class="flex flex-col items-center gap-12 z-10 px-6 text-center">
+            <div class="space-y-4">
+                <h1 class="font-handwritten text-[#4a344d] dark:text-purple-200 text-7xl md:text-8xl leading-tight">
+                    Are you sure? 🥺
+                </h1>
+                <p class="text-[#826388] dark:text-gray-400 text-xl font-medium">
+                    My heart is breaking just a little bit...
+                </p>
+            </div>
+            <div class="flex flex-col items-center gap-16 w-full">
+                <a href="yes.html"
+                    class="glow-button flex min-w-[300px] md:min-w-[400px] items-center justify-center rounded-full h-24 md:h-32 px-12 bg-primary text-white text-3xl md:text-5xl font-extrabold shadow-2xl transition-transform hover:scale-110 active:scale-95">
+                    YES!
+                </a>
+
+                <div class="relative w-full h-12 flex items-center justify-center">
+                    <button
+                        class="absolute opacity-20 hover:opacity-10 scale-[0.3] hover:scale-[0.1] transition-all duration-500 cursor-default bg-gray-400 text-white rounded px-2 py-1 text-[8px] -bottom-10 right-4">
+                        no
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div class="absolute bottom-8 w-full text-center opacity-40">
+            <div class="flex items-center justify-center gap-2">
+                <div class="h-[1px] w-12 bg-primary/30"></div>
+                <span class="material-symbols-outlined text-sm">favorite</span>
+                <div class="h-[1px] w-12 bg-primary/30"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
